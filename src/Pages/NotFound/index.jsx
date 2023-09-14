@@ -1,8 +1,10 @@
+import Layout from "../../Components/Layout"
+
 function NotFound () {
     return (
-        <div>
+        <Layout>
             MyOrder
-        </div>
+        </Layout>
     )
 }
 
