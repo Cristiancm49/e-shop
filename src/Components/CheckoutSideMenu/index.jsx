@@ -15,6 +15,18 @@ const CheckoutSideMenu = () => {
         context.setCartProducts(filteredProducts)
     }
 
+const handleCheckout = () => {
+    const orderToAdd = {
+        date:'02.12.23',
+        products: context.cartProducts,
+        totalProducts:context.cartProducts.length,
+        totalPrice: totalPrice(context.cartProducts)
+    }
+
+    context.setOrder([...context.order, orderToAdd])
+    context.setCartProducts([])
+}
+
     return (
         <aside 
         className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu overflow-y-scroll h-3/6 flex-300 fixed right-0 border border-black rounded-lg bg-white flex-col`}>
@@ -44,6 +56,9 @@ const CheckoutSideMenu = () => {
                         <span className='mx-2 text-xl font-light'>Total:</span>
                         <span className='text-xl '> ${totalPrice(context.cartProducts)}</span>
                     </p>
+                    <button 
+                    onClick={() => handleCheckout()} 
+                    className=''>CheckOut</button>
                 </div>
         </aside>
     )
