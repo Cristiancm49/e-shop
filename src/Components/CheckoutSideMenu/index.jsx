@@ -1,4 +1,5 @@
 import  { useContext }  from 'react'
+import { Link } from 'react-router-dom'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import './styles.css'
 import { ShoppingCartContext } from '../../Context'
@@ -19,7 +20,7 @@ const handleCheckout = () => {
     const orderToAdd = {
         date:'02.12.23',
         products: context.cartProducts,
-        totalProducts:context.cartProducts.length,
+        totalProducts: context.cartProducts.length,
         totalPrice: totalPrice(context.cartProducts)
     }
 
@@ -50,16 +51,18 @@ const handleCheckout = () => {
                          />
                     ))
                 }
-                </div>
-                <div className='px-5 pb-2 w-full '>
-                    <p className='flex justify-between mx-2 my-2'>
-                        <span className='mx-2 text-xl font-light'>Total:</span>
-                        <span className='text-xl '> ${totalPrice(context.cartProducts)}</span>
-                    </p>
+            </div>
+            <div className='px-5 pb-2 w-full '>
+                <p className='flex justify-between mx-2 my-2'>
+                    <span className='mx-2 text-xl font-light'>Total:</span>
+                    <span className='text-xl '> ${totalPrice(context.cartProducts)}</span>
+                </p>
+                <Link to='/my-orders/last'>
                     <button 
-                    onClick={() => handleCheckout()} 
-                    className='w-full bg-gray-500 py-2.5 rounded-lg mb-4'>CheckOut</button>
-                </div>
+                        onClick={() => handleCheckout()} 
+                        className='w-full bg-gray-500 py-2.5 rounded-lg mb-4'>CheckOut</button>
+                </Link>          
+            </div>
         </aside>
     )
 }
