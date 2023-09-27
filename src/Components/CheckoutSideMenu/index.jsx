@@ -37,7 +37,7 @@ const handleCheckout = () => {
                     onClick={() => context.closeCheckoutSideMenu()}/>
                 </div>
             </div>
-            <div className='px-5 pb-2 '>
+            <div className='px-5 pb-2 flex-1'>
                  {
                      context.cartProducts.map(product => (
                          <OrderCard 
@@ -52,13 +52,13 @@ const handleCheckout = () => {
                 }
                 </div>
                 <div className='px-5 pb-2 w-full '>
-                    <p className='flex justify-end'>
+                    <p className='flex justify-between mx-2 my-2'>
                         <span className='mx-2 text-xl font-light'>Total:</span>
                         <span className='text-xl '> ${totalPrice(context.cartProducts)}</span>
                     </p>
                     <button 
                     onClick={() => handleCheckout()} 
-                    className=''>CheckOut</button>
+                    className='w-full bg-gray-500 py-2.5 rounded-lg mb-4'>CheckOut</button>
                 </div>
         </aside>
     )
