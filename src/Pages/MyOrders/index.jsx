@@ -7,19 +7,19 @@ import { useContext } from "react"
 
 function MyOrder () {
     const context  = useContext(ShoppingCartContext)
+
     return (
         <Layout>
 
             My Orders
             {
-                context.order.map((order, index) => {
-                    <Link key={index} to={`/my-orders/${order.id}`}>
+                context.order.map((order, index) => (
+                    <Link key={index} to={`/my-orders/${index}`}>
                         <OrdersCard 
                             totalPrice={order.totalPrice}  
                             totalProducts={order.totalProducts}/>
                     </Link>
-                    
-                })
+                    ))
             }
             
         </Layout>
