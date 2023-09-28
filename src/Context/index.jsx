@@ -16,6 +16,14 @@ export const ShoppingCartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([])
 
     const [order, setOrder] = useState([])
+
+    const [items,  setItems] =  useState(null)
+
+    useEffect(() => {
+        fetch('https://api.escuelajs.co/api/v1/products')
+            .then(response => response.json())
+            .then(data => setItems(data))
+    }, [])
     
     return (
         <ShoppingCartContext.Provider value={{
@@ -32,7 +40,9 @@ export const ShoppingCartProvider = ({children}) => {
             openCheckoutSideMenu,
             closeCheckoutSideMenu,
             order,
-            setOrder
+            setOrder,
+            items,
+            setItems
         }}>
           {children}
         </ShoppingCartContext.Provider>
