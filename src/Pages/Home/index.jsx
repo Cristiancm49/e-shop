@@ -8,6 +8,21 @@ import { ShoppingCartContext } from '../../Context'
 function Home () {
 
     const context = useContext(ShoppingCartContext)
+
+    const renderView = () => {
+        
+            if(context.filteredItems?.length > 0) {
+                return (context.filteredItems?.map(item => (<Card key={item.id} data={item} />)))
+            } else {
+                return (
+                    <div className='w-full h-auto flex items-center justify-center'>
+                        <p className='text-black font-medium text-xl'>No existe product</p>
+                    </div>
+                )
+
+            }
+        
+    }
     return (
         <Layout>
             <div className='w-full h-auto flex justify-center items-center mb-4'>
@@ -22,9 +37,7 @@ function Home () {
                 />
             </div>
             <div className='grid gap-4 px-5 grid-cols-2 w-full max-w-screen-lg lg:grid-cols-4'>
-                {
-                    context.items?.map(item => (<Card key={item.id} data={item} />))
-                }
+                {renderView()}
             </div>
             <ProductDetail />
 

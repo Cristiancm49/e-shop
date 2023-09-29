@@ -31,6 +31,7 @@ function NavBar () {
                 </li>
                 <li>
                     <NavLink 
+                    onClick={() => context.setSearchByCategory('Clothes')}
                     to='/clothes' 
                     className={({isActive}) => 
                         isActive ? activeStyle: undefined
@@ -39,6 +40,7 @@ function NavBar () {
                 </li>
                 <li>
                     <NavLink 
+                    onClick={() => context.setSearchByCategory('furnitures')} 
                     to='/furnitures'
                     className={({isActive}) => 
                         isActive ? activeStyle: undefined
@@ -48,6 +50,7 @@ function NavBar () {
                 </li>
                 <li>
                     <NavLink 
+                    onClick={() => context.setSearchByCategory('electronics')}
                     to='/electronics'
                     className={({isActive}) => 
                         isActive ? activeStyle: undefined
@@ -57,6 +60,7 @@ function NavBar () {
                 </li>
                 <li>
                     <NavLink 
+                    onClick={() => context.setSearchByCategory('toys')}
                     to='/toys'
                     className={({isActive}) => 
                         isActive ? activeStyle: undefined
@@ -65,7 +69,8 @@ function NavBar () {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink 
+                    <NavLink
+                    onClick={() => context.setSearchByCategory('others')} 
                     to='/others'
                     className={({isActive}) => 
                         isActive ? activeStyle: undefined
@@ -107,7 +112,7 @@ function NavBar () {
                     </NavLink>
                 </li>
                 <li className='flex items-center justify-center'>
-                  <ShoppingBagIcon className='w-6 h-6 mx-1' /> {context.count}
+                  <ShoppingBagIcon className='w-6 h-6 mx-1' /> {context.cartProducts.length}
                 </li>
                 
 
